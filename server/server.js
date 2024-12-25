@@ -4,7 +4,7 @@ require('dotenv').config();
 const cors = require('cors');
 const path = require('path'); 
 const bodyParser = require('body-parser');
-const ConnectDB = require('./config/DB');
+const ConnectDB = require('./Config/DB');
 
 // routes
 const AuthRoute = require('./Route/AuthRoute')
