@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const ConnectDB = require('./config/DB');
 
 // routes
+const AuthRoute = require('./Route/AuthRoute')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+app.use('/auth', AuthRoute)
 
 app.get('/', (req, res) => {
     res.send(`Server running on port ${PORT}`);
