@@ -12,7 +12,7 @@ const Nav = () => {
                     <h1 className="mx-4">Home</h1>
                     <h1 className="mx-4">Product</h1>
                     <h1 className="mx-4">About Us</h1>
-                    <h1 className="mx-4">Login</h1>
+                    <h1 className="mx-4"><a href="signup">SignUp</a></h1>
                 </div>
             </div>
         </div>
