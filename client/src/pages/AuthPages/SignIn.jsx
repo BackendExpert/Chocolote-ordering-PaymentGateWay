@@ -51,7 +51,7 @@ const SignIn = () => {
         <div className="absolute inset-0 bg-black opacity-40"></div> 
         <div className="relative px-2 md:px-32 text-white my-20 z-10 text-center">
           <h1 className="text-2xl md:text-5xl font-semibold choco-title">Account</h1>
-          <p className="">Create Account</p>
+          <p className="">Login</p>
         </div>
       </div>
 
@@ -69,8 +69,8 @@ const SignIn = () => {
                             Type={"email"}
                             onChange={handleInputChange}
                             placeholder={"Email"}
-                            value={logindata.username}
-                            name={'username'}
+                            value={logindata.email}
+                            name={'email'}
                             required={true}
                         />    
 
@@ -79,8 +79,8 @@ const SignIn = () => {
                             Type={"password"}
                             onChange={handleInputChange}
                             placeholder={"Password"}
-                            value={logindata.email}
-                            name={'email'}
+                            value={logindata.password}
+                            name={'password'}
                             required={true}
                         />   
 
