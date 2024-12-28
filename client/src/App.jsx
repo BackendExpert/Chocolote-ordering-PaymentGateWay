@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HoemPage from "./pages/HoemPage";
+import HoemPage from "./pages/HomePage/HoemPage";
 import Nav from "./components/Nav/Nav";
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer/Footer";
