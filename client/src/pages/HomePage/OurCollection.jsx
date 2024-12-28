@@ -6,8 +6,37 @@ const OurCollection = () => {
         <div className="">
             <div className="text-center">
                 <h1 className="text-3xl font-semibold text-gray-500 choco-title">Our Chocolate Collections</h1>
+                <div className="my-4">
+                    <div className="md:flex">
+                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
 
-                <p className="mt-4 mb-2 ">our hot products</p>
+                        </div>
+                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
+
+                        </div>
+                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
+
+                        </div>                                                
+                    </div>
+                    <div className="md:flex my-4">
+                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
+                                
+                        </div>
+                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
+
+                        </div>
+                    </div>
+                    <div className="md:flex my-4">
+                        <div className="h-64 md:my-0 my-4 rounded-md md:w-1/2 md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
+
+                        </div>
+                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
+
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>

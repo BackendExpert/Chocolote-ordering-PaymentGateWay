@@ -6,7 +6,7 @@ import OurCollection from './OurCollection';
 
 const HomePage = () => {
   return (
-    <div className="pt-8">
+    <div className="bg-[#BC9773]/20">
       <div className="relative h-[80vh] w-full py-16 px-4 md:px-16 bg-cover bg-center" style={{ backgroundImage: 'url("https://wallpapercave.com/wp/ppd85lw.jpg")' }}>
         <div className="absolute inset-0 bg-black opacity-40"></div> 
         {/* hero section */}
@@ -22,17 +22,17 @@ const HomePage = () => {
       </div>
 
       {/* about us */}
-      <div className="my-6">
+      <div className="py-2">
         <AboutUs />
       </div>
 
       {/* our collection */}
-      <div className="my-6">
+      <div className="py-2">
         <OurCollection />
       </div>
 
       {/* hot products */}
-      <div className="my-16">
+      <div className="py-2">
         <HotProduct />
       </div>
 
