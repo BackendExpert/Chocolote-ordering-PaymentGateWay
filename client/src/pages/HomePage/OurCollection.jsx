@@ -8,31 +8,45 @@ const OurCollection = () => {
                 <h1 className="text-3xl font-semibold text-gray-500 choco-title">Our Chocolate Collections</h1>
                 <div className="my-4">
                     <div className="md:flex">
-                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
-
+                        <div className="relative h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('https://wallpapercave.com/wp/wp4144882.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                            </div>
                         </div>
-                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
 
+                        <div className="relative h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('https://wallpapercave.com/wp/wp4144882.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                            </div>
                         </div>
-                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
 
-                        </div>                                                
+                        <div className="relative h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('https://wallpapercave.com/wp/wp4144882.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                            </div>
+                        </div>
+                                               
                     </div>
                     <div className="md:flex my-4">
-                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
-                                
+                        <div className="relative h-64 md:my-0 my-4 rounded-md md:w-1/2 md:mx-4 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('https://wallpapercave.com/wp/wp4144882.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                            </div>
                         </div>
-                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
 
+                        <div className="relative h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('https://wallpapercave.com/wp/wp4144882.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                            </div>
                         </div>
+
                     </div>
                     <div className="md:flex my-4">
-                        <div className="h-64 md:my-0 my-4 rounded-md md:w-1/2 md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
-
+                        <div className="relative h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('https://wallpapercave.com/wp/wp4144882.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                            </div>
                         </div>
-                        <div className="h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 bg-[url(https://wallpapercave.com/wp/wp4144882.jpg)] bg-cover">
 
+                        <div className="relative h-64 md:my-0 my-4 rounded-md md:w-full md:mx-4 overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('https://wallpapercave.com/wp/wp4144882.jpg')] bg-cover bg-center transition-transform duration-500 hover:scale-110">
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
