@@ -30,7 +30,7 @@ const Nav = () => {
             <h1 className="mx-4 my-2 cursor-pointer"><a href="/">Home</a></h1>
             <h1 className="mx-4 my-2 cursor-pointer">Product</h1>
             <h1 className="mx-4 my-2 cursor-pointer">About Us</h1>
-            <h1 className="mx-4 my-2 cursor-pointer"><a href="signin">SignUp</a></h1>
+            <h1 className="mx-4 my-2 cursor-pointer"><a href="signin">Login</a></h1>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ const SubmitBtn = ({ btntype, btnvalue, onClick}) => {
         type={btntype} 
         onClick={onClick}
         className='
-            bg-[#BC9773]
+            bg-[#654321]
             text-white
             font-semibold
             py-2

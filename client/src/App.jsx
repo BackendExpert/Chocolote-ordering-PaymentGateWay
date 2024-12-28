@@ -52,8 +52,8 @@ export default function App() {
         )}
       <Routes>
         <Route path="/" element={<HoemPage /> }/>
-        <Route path="/register" element={<SignIn /> } />
-        <Route path="/signin" element={<SignUp /> } />
+        <Route path="/register" element={<SignUp /> } />
+        <Route path="/signin" element={<SignIn /> } />
       </Routes>
       <Footer />
     </BrowserRouter>
