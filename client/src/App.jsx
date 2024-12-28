@@ -8,6 +8,7 @@ import SignIn from "./pages/AuthPages/SignIn";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
+  const [isTopOfPage, setIsTopOfPage] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const handleScroll = () => {
@@ -20,7 +21,7 @@ export default function App() {
 
       setShowNavBar(true);
     }
-
+    setIsTopOfPage(currentScrollY === 0);
     setLastScrollY(currentScrollY);
   };
 
@@ -38,9 +39,13 @@ export default function App() {
     <BrowserRouter>
         {shouldShowNavBar && (
           <div
-            className={`fixed top-0 w-full z-50 transition-transform duration-300 ${
-              showNavBar ? "translate-y-0" : "-translate-y-full"
-            }`}
+          className={`fixed top-0 w-full z-50 transition-transform duration-300 ${
+            showNavBar ? "translate-y-0" : "-translate-y-full"
+          } ${
+            isTopOfPage
+              ? "bg-transparent transition-colors duration-500"
+              : "bg-[#7B3F00] shadow-md transition-colors duration-500"
+          }`}
           >
             <Nav />
           </div>
