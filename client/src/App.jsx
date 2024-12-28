@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Footer from "./components/Footer/Footer";
 import SignUp from "./pages/AuthPages/SignUp";
 import SignIn from "./pages/AuthPages/SignIn";
+import Dashboard from "./components/Dashboard/Dashboard";
+import DashHome from "./pages/Dashboard/DashHome";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -54,6 +56,9 @@ export default function App() {
         <Route path="/" element={<HoemPage /> }/>
         <Route path="/register" element={<SignUp /> } />
         <Route path="/signin" element={<SignIn /> } />
+        <Route path="/Dashboard/" element={<Dashboard /> } >
+          <Route path="/Home" element={<DashHome /> } />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>
