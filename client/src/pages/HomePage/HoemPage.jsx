@@ -2,6 +2,7 @@ import React from 'react';
 import BgNon from '../../components/Buttons/BgNon';
 import HotProduct from './HotProduct';
 import AboutUs from './AboutUs';
+import OurCollection from './OurCollection';
 
 const HomePage = () => {
   return (
@@ -20,15 +21,23 @@ const HomePage = () => {
         </div>
       </div>
 
+      {/* about us */}
+      <div className="my-6">
+        <AboutUs />
+      </div>
+
+      {/* our collection */}
+      <div className="my-6">
+        <OurCollection />
+      </div>
+
       {/* hot products */}
       <div className="my-16">
         <HotProduct />
       </div>
 
-      {/* about us */}
-      <div className="my-6">
-        <AboutUs />
-      </div>
+
+      
     </div>
   );
 };

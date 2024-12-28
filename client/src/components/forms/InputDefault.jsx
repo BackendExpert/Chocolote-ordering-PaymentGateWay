@@ -4,7 +4,7 @@ const InputDefault = ({ Type, name, value, placeholder, onChange, required }) =>
 
     return (
         <input
-          className='h-auto border bg-gray-100 w-full rounded rounded-r-lg pl-4'
+          className='h-auto border border-[#BC9773] bg-gray-100 w-full rounded rounded-r-lg pl-4'
           type={Type}
           name={name}
           value={value}

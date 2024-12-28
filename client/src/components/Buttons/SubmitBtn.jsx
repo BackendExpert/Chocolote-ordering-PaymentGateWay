@@ -5,7 +5,14 @@ const SubmitBtn = ({ btntype, btnvalue, onClick}) => {
     <button 
         type={btntype} 
         onClick={onClick}
-        className=''
+        className='
+            bg-[#BC9773]
+            text-white
+            font-semibold
+            py-2
+            px-8
+            rounded-md
+        '
         >
             
         {btnvalue}

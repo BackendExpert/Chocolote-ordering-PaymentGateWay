@@ -29,9 +29,9 @@ const HotProduct = () => {
     <div className="px-4 md:px-32 my-8">
         <div className="">
             <div className="text-center">
-                <h1 className="text-3xl font-semibold text-gray-500">Hot Products</h1>
+                <h1 className="text-3xl font-semibold text-gray-500 choco-title">Hot Products</h1>
 
-                <p className="mt-4 mb-2">our hot products</p>
+                <p className="mt-4 mb-2 ">our hot products</p>
             </div>
 
             <div className="md:grid grid-cols-3 gap-3 mt-12">
