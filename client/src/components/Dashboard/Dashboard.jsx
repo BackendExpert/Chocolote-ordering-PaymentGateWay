@@ -30,7 +30,7 @@ const Dashboard = () => {
       } else {
         useEffect(() => {
           localStorage.clear();
-          navigate('/LoginPortal');
+          navigate('/signin');
         }, []);
       }
 }

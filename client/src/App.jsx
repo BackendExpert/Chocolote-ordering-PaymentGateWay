@@ -57,7 +57,7 @@ export default function App() {
         <Route path="/register" element={<SignUp /> } />
         <Route path="/signin" element={<SignIn /> } />
         <Route path="/Dashboard/" element={<Dashboard /> } >
-          <Route path="/Home" element={<DashHome /> } />
+          <Route path="Home" element={<DashHome /> } />
         </Route>
       </Routes>
       <Footer />
