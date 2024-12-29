@@ -52,3 +52,18 @@
     scrollbar-color: rgb(255, 255, 255) rgb(255, 255, 255); /* Thumb and track color */
 }
 
+.transition-transform {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  @media (min-width: 768px) {
+    .md\:translate-x-0 {
+      transform: translateX(0) !important;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .scrollbar-hidden {
+      overflow: hidden;
+    }
+  }
