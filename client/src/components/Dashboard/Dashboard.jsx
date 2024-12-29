@@ -4,6 +4,7 @@ import secureLocalStorage from 'react-secure-storage'
 import DashNav from './DashNav';
 import DashSide from './DashSide';
 import DashFooter from './DashFooter';
+import './dashcolor.css'
 
 const Dashboard = () => {
     const navigate = useNavigate()
@@ -12,9 +13,9 @@ const Dashboard = () => {
 
     if (EmailUser !== null || RoleUser !== null) {
         return (
-            <div className="w-full min-h-screen bg-[#f7f7f7]">
+            <div className="w-full min-h-screen dash-bg">
               <div className="md:flex">
-                <div className="shadow-custom w-[19%] fixed overflow-y-auto scrollbar-hidden scrollbar-thin scrollbar-thumb-white hover:scrollbar-thumb-gray-400 scrollbar-track-white">
+              <div className="shadow-custom w-[19%] fixed overflow-y-auto scrollbar-hidden scrollbar-thin scrollbar-thumb-white hover:scrollbar-thumb-gray-400 scrollbar-track-white">
                     <DashSide />
                 </div>
                 <div className="md:w-full md:ml-[20%] pt-4">
