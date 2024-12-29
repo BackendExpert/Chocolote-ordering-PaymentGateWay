@@ -15,7 +15,7 @@ const Dashboard = () => {
 
     const headleopenside = () => {
       setopenside(!openside);
-      console.log(openside)
+      // console.log(openside)
     };
     
 
@@ -45,7 +45,7 @@ const Dashboard = () => {
             <div className="w-full min-h-screen dash-bg">
               <div className="md:flex">
                 <div className={` md:block shadow-custom md:w-[19%] w-[75%] fixed overflow-y-auto bottom-4 max-h-[96%] mt-4 ml-4 rounded-lg duration-500 ${openside ? 'translate-x-0' : '-translate-x-full'}`}>
-                    <DashSide />
+                    <DashSide headleopenside={headleopenside}/>
                 </div>
                 <div className="md:w-full md:ml-[21%] pt-4">
                   <DashNav openside={openside} headleopenside={headleopenside} />
