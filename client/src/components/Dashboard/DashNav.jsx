@@ -1,12 +1,17 @@
 import React from 'react'
 import UserDash from '../../assets/UserDash.png'
+import { TiThMenu } from "react-icons/ti";
+
 
 const DashNav = () => {
   return (
     <div className='bg-white shadow mr-4 py-6 px-4 rounded-lg'>
       <div className="flex justify-between">
-        <div className="">
-          <h1 className='title font-semibold'>Dashboard</h1>
+        <div className="flex">
+          <div className="pr-4 md:hidden">
+            <TiThMenu className='h-6 w-auto fill-[#696cff]' />
+          </div>
+          <h1 className='title font-semibold text-xl'>Dashboard</h1>
         </div>
 
         <div className="">
