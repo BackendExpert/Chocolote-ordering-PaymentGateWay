@@ -37,6 +37,7 @@ export default function App() {
   }, [lastScrollY]);
 
   const shouldShowNavBar = !location.pathname.startsWith("/Dashboard");
+  const shouldShowFooter = !location.pathname.startsWith("/Dashboard");
   return (
     <BrowserRouter>
         {shouldShowNavBar && (
@@ -60,7 +61,7 @@ export default function App() {
           <Route path="Home" element={<DashHome /> } />
         </Route>
       </Routes>
-      <Footer />
+      {shouldShowFooter && showNavBar && <Footer />}
     </BrowserRouter>
   )
 }
