@@ -14,6 +14,14 @@
 .dashside {
     background-color: var(--color-card-dash);
 }
+.dashside .title{
+    color: var(--color-purple);
+}
+
+.title{
+    color: var(--color-purple);
+}
+
 
 /* Ensure DashSide has a proper height and overflow settings */
 .shadow-custom {

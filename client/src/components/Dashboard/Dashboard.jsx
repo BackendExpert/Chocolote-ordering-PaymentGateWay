@@ -15,7 +15,7 @@ const Dashboard = () => {
         return (
             <div className="w-full min-h-screen dash-bg">
               <div className="md:flex">
-                <div className="shadow-custom w-[19%] fixed overflow-y-auto bottom-4 max-h-[96%] mt-4 ml-4 rounded-2xl">
+                <div className="shadow-custom bg-white w-[19%] fixed overflow-y-auto bottom-4 max-h-[96%] mt-4 ml-4 rounded-2xl">
                     <DashSide />
                 </div>
                 <div className="md:w-full md:ml-[21%] pt-4">
