@@ -15,7 +15,7 @@ const Dashboard = () => {
         return (
             <div className="w-full min-h-screen dash-bg">
               <div className="md:flex">
-              <div className="shadow-custom w-[19%] fixed overflow-y-auto scrollbar-hidden scrollbar-thin scrollbar-thumb-white hover:scrollbar-thumb-gray-400 scrollbar-track-white">
+                <div className="shadow-custom w-[19%] fixed overflow-y-auto scrollbar-hidden scrollbar-thin scrollbar-thumb-white scrollbar-track-white">
                     <DashSide />
                 </div>
                 <div className="md:w-full md:ml-[20%] pt-4">
