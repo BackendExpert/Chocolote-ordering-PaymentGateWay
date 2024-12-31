@@ -14,9 +14,7 @@ const DashSide = ({ headleopenside }) => {
           <FaArrowLeft className='h-4 w-auto'/>
         </div>
       </div>
-      <hr />
-
-      
+      <hr />    
       
     </div>
   )
