@@ -151,7 +151,7 @@ const DashSide = ({ headleopenside }) => {
   }).filter(Boolean);
 
   return (
-    <div className='dashside bg-white h-full rounded-xl scrollbar-hidden scrollbar-thin scrollbar-thumb-white scrollbar-track-white'>
+    <div className='dashside bg-white min-h-full rounded-xl scrollbar-hidden scrollbar-thin scrollbar-thumb-white scrollbar-track-white'>
       <div className="flex justify-between">
         <div className="flex p-4 title">
           <GiChocolateBar className='h-8 w-auto'/>
@@ -166,7 +166,7 @@ const DashSide = ({ headleopenside }) => {
           <img src="https://avatars.githubusercontent.com/u/138636749?v=4" alt="" className="h-40 w-auto rounded-full"/>
         </center>
       </div>
-      <div className="h-full overflow-y-auto hide-scrollbar min-h-screen">
+      <div className="h-full overflow-y-auto hide-scrollbar ">
             {filteredMenu.map((menu) => (
               <MenuComponent
                 key={menu.id}
@@ -182,6 +182,7 @@ const DashSide = ({ headleopenside }) => {
                 <FaPowerOff className='h-5 w-auto fill-[#7e7c88]'/>
                 <p className="text-gray-500 pl-2">Logout</p>
               </div>
+              
             </div>
           </div>
       <hr />    
