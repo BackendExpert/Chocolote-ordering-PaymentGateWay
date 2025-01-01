@@ -6,7 +6,6 @@ import { AiFillProduct } from "react-icons/ai";
 import { CiBoxList } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
 import Calendar from 'react-calendar';
-
 import './dashcolor.css'
 
 const AdminDashHome = () => {
@@ -68,15 +67,28 @@ const AdminDashHome = () => {
                 </div>
             </div>
         </div>
+
+        {/* 2nd row */}
+        <div className="md:flex my-4">
+            <div className="md:my-0 my-4 md:w-2/6 bg-white rounded p-3 shadow-md mx-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur, quam sequi voluptatum fugiat nulla iure repellendus ad quidem? Hic doloremque soluta necessitatibus accusantium illo unde atque architecto nisi quasi?
+            </div>
+            <div className="md:my-0 my-4 md:w-3/6 bg-white rounded p-3 shadow-md mx-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur, quam sequi voluptatum fugiat nulla iure repellendus ad quidem? Hic doloremque soluta necessitatibus accusantium illo unde atque architecto nisi quasi?
+            </div>
+            <div className="md:my-0 my-4 md:w-2/6 bg-white rounded p-3 shadow-md mx-1">
+                <Calendar
+                    className="rounded-lg border border-gray-300"
+                    onChange={setDate}
+                    value={date}
+                />
+                <p className="text-center mt-2 text-sm text-gray-500">
+                    Today : <span className='font-semibold text-[#696cff]'>{date.toDateString()}</span>
+                </p>
+            </div>
+        </div>
         <div className="mt-4">
-            <Calendar
-                className="rounded-lg border border-gray-300"
-                onChange={setDate}
-                value={date}
-            />
-            <p className="text-center mt-2 text-sm text-gray-500">
-                Selected Date: {date.toDateString()}
-            </p>
+
         </div>
     </div>
   )
