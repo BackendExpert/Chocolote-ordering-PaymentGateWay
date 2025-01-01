@@ -9,6 +9,7 @@ const ConnectDB = require('./Config/DB');
 // routes
 const AuthRoute = require('./Route/AuthRoute')
 const userRoute = require('./Route/UserRoute')
+const productRoute = require('./Route/ProductRoute')
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/auth', AuthRoute)
+app.use('/product', productRoute)
 
 // test
 app.use('/user', userRoute)
