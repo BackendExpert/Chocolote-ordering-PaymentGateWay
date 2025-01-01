@@ -2,7 +2,19 @@ import React from 'react'
 
 const DashHome = () => {
   return (
-    <div>DashHome</div>
+    <div>
+      <div className="">
+        <h1 className="text-xl uppercase font-semibold text-[#696cff]">Dashboard</h1>
+      </div>
+      <div className="md:flex my-2">
+        <div className="w-full bg-white p-4 mr-2 shadow rounded">
+
+        </div>
+        <div className="w-full bg-white p-4 ml-2">
+
+        </div>
+      </div>
+    </div>
   )
 }
 
