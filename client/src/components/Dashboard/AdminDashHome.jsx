@@ -7,6 +7,9 @@ import { CiBoxList } from "react-icons/ci";
 import { BsCashCoin } from "react-icons/bs";
 import Calendar from 'react-calendar';
 import './dashcolor.css'
+import PieChart from '../Charts/PieChart';
+import BarChart from '../Charts/BarChart';
+import AdminOrderStatus from '../TableData/AdminOrderStatus';
 
 const AdminDashHome = () => {
     const [date, setDate] = useState(new Date());
@@ -71,10 +74,10 @@ const AdminDashHome = () => {
         {/* 2nd row */}
         <div className="md:flex my-4">
             <div className="md:my-0 my-4 md:w-2/6 bg-white rounded p-3 shadow-md mx-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur, quam sequi voluptatum fugiat nulla iure repellendus ad quidem? Hic doloremque soluta necessitatibus accusantium illo unde atque architecto nisi quasi?
+                <PieChart />
             </div>
             <div className="md:my-0 my-4 md:w-3/6 bg-white rounded p-3 shadow-md mx-1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At tenetur, quam sequi voluptatum fugiat nulla iure repellendus ad quidem? Hic doloremque soluta necessitatibus accusantium illo unde atque architecto nisi quasi?
+                <BarChart />
             </div>
             <div className="md:my-0 my-4 md:w-2/6 bg-white rounded p-3 shadow-md mx-1">
                 <Calendar
@@ -87,9 +90,12 @@ const AdminDashHome = () => {
                 </p>
             </div>
         </div>
-        <div className="mt-4">
-
+        
+        {/* 3rd row */}
+        <div className="">
+            <AdminOrderStatus />
         </div>
+
     </div>
   )
 }
