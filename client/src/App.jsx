@@ -7,6 +7,8 @@ import SignUp from "./pages/AuthPages/SignUp";
 import SignIn from "./pages/AuthPages/SignIn";
 import Dashboard from "./components/Dashboard/Dashboard";
 import DashHome from "./pages/Dashboard/DashHome";
+import CreateProduct from "./pages/Product/CreateProduct";
+import ManageProduct from "./pages/Product/ManageProduct";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -59,6 +61,8 @@ export default function App() {
         <Route path="/signin" element={<SignIn /> } />
         <Route path="/Dashboard/" element={<Dashboard /> } >
           <Route path="Home" element={<DashHome /> } />
+          <Route path="CreateProduct" element={<CreateProduct /> } />
+          <Route path="ManageProdcut" element={<ManageProduct /> } />
         </Route>
       </Routes>
       {shouldShowFooter && <Footer />}

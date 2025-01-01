@@ -45,9 +45,8 @@ const DashSide = ({ headleopenside }) => {
     },
     {
       id: 3, name: "Products Management", icon: <AiFillProduct className='h-5 w-auto fill-[#7e7c88]' />, submenu: [
-        { id: 1, name: "Add New Product", link: '' },
-        { id: 2, name: "Edit Products", link: '' },
-        { id: 3, name: "Manage Categories", link: '' },
+        { id: 1, name: "Add New Product", link: '/Dashboard/CreateProduct' },
+        { id: 2, name: "Manage Categories", link: '/Dashboard/ManageProdcut' },
       ]
     },
     {
