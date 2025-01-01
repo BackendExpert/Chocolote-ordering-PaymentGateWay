@@ -1,4 +1,5 @@
 import React from 'react'
+import Dashbtn from '../Buttons/Dashbtn'
 
 const AdminOrderStatus = () => {
     const tablesameledata = [
@@ -153,6 +154,9 @@ const AdminOrderStatus = () => {
                         }
                     </tbody>
                 </table>
+                <div className="mt-2">
+                    <Dashbtn btntype={'button'} btnvalue={'View more Orders'} />
+                </div>                
             </div>
         </div>
 
