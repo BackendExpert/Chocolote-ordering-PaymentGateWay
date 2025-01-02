@@ -3,7 +3,7 @@ import React from 'react'
 const DashInputImage = ({ name, value, onChange, required }) => {
   return (
     <input 
-        type="image" 
+        type="file" 
         name={name}
         value={value}
         onChange={onChange}
@@ -13,7 +13,13 @@ const DashInputImage = ({ name, value, onChange, required }) => {
             h-12
             border
             border-[#696cff]
-            rounded            
+            rounded
+            file:bg-[#696cff] 
+            file:border-none
+            file:text-white
+            file:h-full
+            file:px-4 
+            file:cursor-pointer           
         '
     />
   )

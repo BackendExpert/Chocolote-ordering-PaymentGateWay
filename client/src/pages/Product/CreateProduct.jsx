@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import DashInput from '../../components/forms/DashInput'
 import DashInputTextArea from '../../components/forms/DashInputTextArea';
+import DashInputImage from '../../components/forms/DashInputImage';
 
 const CreateProduct = () => {
     const [productData, setProductData] = useState({
@@ -96,6 +97,15 @@ const CreateProduct = () => {
                   placeholder={'Product Weight'}
                 />
               </div>
+            </div>
+            <div className="">
+              <p className="my-2 text-gray-500">Product Image : </p>
+              <DashInputImage 
+                name={'image'}
+                value={productData.image}
+                onChange={handleInputChange}
+                required={true}
+              />
             </div>
 
 
