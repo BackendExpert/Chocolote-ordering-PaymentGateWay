@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import DashInput from '../../components/forms/DashInput'
 import DashInputTextArea from '../../components/forms/DashInputTextArea';
 import DashInputImage from '../../components/forms/DashInputImage';
+import Dashbtn from '../../components/Buttons/Dashbtn';
 
 const CreateProduct = () => {
     const [productData, setProductData] = useState({
@@ -21,13 +22,23 @@ const CreateProduct = () => {
         [name]: value
       }));
     };
+
+    const headleCreateProduct = (e) => {
+      e.preventDefault();
+      try{
+        console.log(productData)
+      }
+      catch(err){
+        console.log(err)
+      }
+    }
   return (
     <div>
       <h1 className="font-semibold text-[#696cff] text-xl">Create Product</h1>
 
       <div className="bg-white p-4  shadow-md rounded my-4">
         <div className="">
-          <form method="post">
+          <form method="post" onSubmit={headleCreateProduct}>
             <div className="">
               <p className="mb-2 text-gray-500">Product Name : </p>
               <DashInput 
@@ -106,6 +117,10 @@ const CreateProduct = () => {
                 onChange={handleInputChange}
                 required={true}
               />
+            </div>
+
+            <div className="my-4">
+              <Dashbtn btntype={'submit'} btnvalue={'Create Product'}/>
             </div>
 
 
