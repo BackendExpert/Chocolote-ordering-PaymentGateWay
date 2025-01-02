@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import DashInput from '../../components/forms/DashInput'
+import DashInputTextArea from '../../components/forms/DashInputTextArea';
 
 const CreateProduct = () => {
     const [productData, setProductData] = useState({
@@ -27,7 +28,7 @@ const CreateProduct = () => {
         <div className="">
           <form method="post">
             <div className="">
-              <p className="mb-2 text-lg text-gray-500">Product Name : </p>
+              <p className="mb-2 text-gray-500">Product Name : </p>
               <DashInput 
                 Type={'text'}
                 name={'productName'}
@@ -35,6 +36,17 @@ const CreateProduct = () => {
                 onChange={handleInputChange}
                 required={true}
                 placeholder={'Product Name'}
+              />
+            </div>
+
+            <div className="my-2">
+              <p className="mb-2 text-gray-500">Product Description</p>
+              <DashInputTextArea 
+                name={'description'}
+                value={productData.description}
+                onChange={handleInputChange}
+                required={true}
+                placeholder={'Product Description'}
               />
             </div>
           </form>
