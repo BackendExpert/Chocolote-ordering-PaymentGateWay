@@ -64,7 +64,7 @@ const AuthController = {
                 const chechPass = await bcrypt.compare(password, chechUser.password)
 
                 if(chechPass){
-                    const token = jwt.sign({ id: chechUser._id }, process.env.JWT_SECRET);
+                    const token = jwt.sign({ id: chechUser._id, role:chechUser.role }, process.env.JWT_SECRET);
                     return res.json({ Status: "Success", Result: chechUser, Token: token })
                 }
                 else{
