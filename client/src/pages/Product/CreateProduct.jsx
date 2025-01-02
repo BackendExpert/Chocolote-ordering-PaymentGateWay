@@ -4,15 +4,17 @@ import DashInputTextArea from '../../components/forms/DashInputTextArea';
 import DashInputImage from '../../components/forms/DashInputImage';
 import Dashbtn from '../../components/Buttons/Dashbtn';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CreateProduct = () => {
+    const navigate = useNavigate()
     const [productData, setProductData] = useState({
       productName: '',
       description: '',
       price: '',
       stockQuantity: '',
       brand: '',
-      image: null,
+      image: '',
       weight: '',
     })
 
@@ -36,15 +38,31 @@ const CreateProduct = () => {
       e.preventDefault();
       try{
         const formData = new FormData();
-        // Append product data
-        Object.keys(productData).forEach(key => {
-          formData.append(key, productData[key]);
+        
+        // Append product data to FormData, excluding the null or undefined values
+        Object.keys(productData).forEach((key) => {
+          if (productData[key]) {  // Append only if there's data
+            formData.append(key, productData[key]);
+          }
         });
-
         console.log(formData)
         
         // console.log(productData)
         // const res = await axios.post(import.meta.env.VITE_APP_API + '/product/createproduct')
+        const res = await axios.post(import.meta.env.VITE_APP_API + '/product/createproduct', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        .then(res => {
+          if(res.data.Status === "Success"){
+            alert("Prodcut Created Successfully")
+            navigate('/Dashboard/ManageProdcut')
+          }
+          else{
+            alert(res.data.Error)
+          }
+        })
       }
       catch(err){
         console.log(err)
@@ -131,7 +149,6 @@ const CreateProduct = () => {
               <p className="my-2 text-gray-500">Product Image : </p>
               <DashInputImage 
                 name={'image'}
-                value={productData.image}
                 onChange={handleImageChange}
                 required={true}
               />
