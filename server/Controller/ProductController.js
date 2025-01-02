@@ -12,7 +12,11 @@ const ProductController = {
                 status
             } = req.body
 
-            return res.json({ Status: "Success"})
+            
+
+
+
+            // return res.json({ Status: "Success"})
         }
         catch(err){
             console.log(err)
