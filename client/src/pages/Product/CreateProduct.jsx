@@ -3,6 +3,7 @@ import DashInput from '../../components/forms/DashInput'
 import DashInputTextArea from '../../components/forms/DashInputTextArea';
 import DashInputImage from '../../components/forms/DashInputImage';
 import Dashbtn from '../../components/Buttons/Dashbtn';
+import axios from 'axios';
 
 const CreateProduct = () => {
     const [productData, setProductData] = useState({
@@ -11,7 +12,7 @@ const CreateProduct = () => {
       price: '',
       stockQuantity: '',
       brand: '',
-      image: '',
+      image: null,
       weight: '',
     })
 
@@ -23,10 +24,27 @@ const CreateProduct = () => {
       }));
     };
 
-    const headleCreateProduct = (e) => {
+    const handleImageChange = (e) => {
+      const { name, files } = e.target;
+      setProductData((prevData) => ({
+        ...prevData,
+        [name]: files[0]  // Assuming only one image is uploaded
+      }));
+    };
+
+    const headleCreateProduct = async (e) => {
       e.preventDefault();
       try{
-        console.log(productData)
+        const formData = new FormData();
+        // Append product data
+        Object.keys(productData).forEach(key => {
+          formData.append(key, productData[key]);
+        });
+
+        console.log(formData)
+        
+        // console.log(productData)
+        // const res = await axios.post(import.meta.env.VITE_APP_API + '/product/createproduct')
       }
       catch(err){
         console.log(err)
@@ -114,7 +132,7 @@ const CreateProduct = () => {
               <DashInputImage 
                 name={'image'}
                 value={productData.image}
-                onChange={handleInputChange}
+                onChange={handleImageChange}
                 required={true}
               />
             </div>
