@@ -24,7 +24,7 @@ const CreateProduct = () => {
     <div>
       <h1 className="font-semibold text-[#696cff] text-xl">Create Product</h1>
 
-      <div className="bg-white p-4  shadow-md rounded">
+      <div className="bg-white p-4  shadow-md rounded my-4">
         <div className="">
           <form method="post">
             <div className="">
@@ -49,6 +49,56 @@ const CreateProduct = () => {
                 placeholder={'Product Description'}
               />
             </div>
+
+            <div className="">
+              <p className="mb-2 text-gray-500">Product Price : </p>
+              <DashInput 
+                Type={'number'}
+                name={'price'}
+                value={productData.price}
+                onChange={handleInputChange}
+                required={true}
+                placeholder={'Product Price'}
+              />
+            </div>
+
+            <div className="md:grid grid-cols-3 gap-3">
+              <div className="">
+                <p className="my-2 text-gray-500">Product Stock Quantity : </p>
+                <DashInput 
+                  Type={'number'}
+                  name={'stockQuantity'}
+                  value={productData.stockQuantity}
+                  onChange={handleInputChange}
+                  required={true}
+                  placeholder={'Product Stock Quantity'}
+                />
+              </div>
+              <div className="">
+                <p className="my-2 text-gray-500">Product Brand : </p>
+                <DashInput 
+                  Type={'text'}
+                  name={'brand'}
+                  value={productData.brand}
+                  onChange={handleInputChange}
+                  required={true}
+                  placeholder={'Product Brand'}
+                />
+              </div>
+              <div className="">
+                <p className="my-2 text-gray-500">Product Weight : </p>
+                <DashInput 
+                  Type={'number'}
+                  name={'weight'}
+                  value={productData.weight}
+                  onChange={handleInputChange}
+                  required={true}
+                  placeholder={'Product Weight'}
+                />
+              </div>
+            </div>
+
+
           </form>
         </div>
       </div>
