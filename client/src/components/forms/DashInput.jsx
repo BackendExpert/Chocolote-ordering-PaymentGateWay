@@ -1,14 +1,15 @@
 import React from 'react'
 
-const DashInput = () => {
+const DashInput = ({ Type, name, value, placeholder, onChange, required }) => {
   return (
     <input 
-        type="text" 
-        name="" 
-        id="" 
+        type={Type} 
+        name={name}
+        value={value} 
         className="bg-gray-200 w-full h-12 border border-[#696cff] rounded pl-2" 
-        placeholder='Product Name' 
-        required
+        placeholder={placeholder} 
+        required={!!required}
+        onChange={onChange}
     />
   )
 }
