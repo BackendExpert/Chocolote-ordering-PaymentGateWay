@@ -11,6 +11,8 @@ const ProductController = {
                 weight,
                 status
             } = req.body
+
+            return res.json({ Status: "Success"})
         }
         catch(err){
             console.log(err)
