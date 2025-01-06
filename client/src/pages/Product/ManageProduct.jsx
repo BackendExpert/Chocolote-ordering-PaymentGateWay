@@ -55,7 +55,7 @@ const ManageProduct = () => {
                       }
                     </td>
                     <td className='text-center my-2'>
-                      <Link to={`/Dashboard/ManageProdcut/${data.id}`} >
+                      <Link to={`/Dashboard/ManageOneProdcut/${data.id}`} >
                         <DashbtnNoHover btntype={'button'} btnvalue={'View'}/>
                       </Link>
                     </td>

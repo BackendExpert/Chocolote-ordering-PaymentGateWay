@@ -65,7 +65,7 @@ export default function App() {
           <Route path="Home" element={<DashHome /> } />
           <Route path="CreateProduct" element={<CreateProduct /> } />
           <Route path="ManageProdcut" element={<ManageProduct /> } />
-          <Route path="ManageProdcut/:id" element={<ManageOneProduct /> } />
+          <Route path="ManageOneProdcut/:id" element={<ManageOneProduct /> } />
         </Route>
       </Routes>
       {shouldShowFooter && <Footer />}
