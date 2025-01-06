@@ -26,7 +26,9 @@ const ProductController = {
                 description: description,
                 price: price,
                 stockQuantity: stockQuantity,
-                brand: brand
+                brand: brand,
+                weight: weight,
+                imageUrl: image,
             })
 
             const resultProduct = await newProduct.save()
