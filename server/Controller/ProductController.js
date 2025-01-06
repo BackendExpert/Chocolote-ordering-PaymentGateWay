@@ -1,22 +1,42 @@
+const Product = require("../Model/Product");
+
 const ProductController = {
     prodcutCreate: async(req, res) => {
         try{
-            // const { 
-            //     productName,
-            //     description,
-            //     price,
-            //     stockQuantity,
-            //     brand,
-            //     imageUrl,
-            //     weight,
-            //     status
-            // } = req.body
+            const { 
+                productName,
+                description,
+                price,
+                stockQuantity,
+                brand,                
+                weight,
+                status
+            } = req.body
 
-            
+            const image = req.file.path
 
+            const chechProduct = await Product.findOne({ productName: productName })
 
+            if(chechProduct){
+                return res.json({ Error: "This Product Already exists..."})
+            }
 
-            return res.json({ Status: "Success"})
+            const newProduct = new Product({
+                productName: productName,
+                description: description,
+                price: price,
+                stockQuantity: stockQuantity,
+                brand: brand
+            })
+
+            const resultProduct = await newProduct.save()
+
+            if(resultProduct){
+                return res.json({ Status: "Success"})                
+            }
+            else{
+                return res.json({ Error: 'Internel Server Error While Creating Product'})
+            }       
         }
         catch(err){
             console.log(err)
