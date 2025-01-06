@@ -9,6 +9,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import DashHome from "./pages/Dashboard/DashHome";
 import CreateProduct from "./pages/Product/CreateProduct";
 import ManageProduct from "./pages/Product/ManageProduct";
+import PrivateRoute from "./components/Auth/PriveteRoute";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -59,7 +60,7 @@ export default function App() {
         <Route path="/" element={<HoemPage /> }/>
         <Route path="/register" element={<SignUp /> } />
         <Route path="/signin" element={<SignIn /> } />
-        <Route path="/Dashboard/" element={<Dashboard /> } >
+        <Route path="/Dashboard/" element={ <PrivateRoute element={<Dashboard />} />} >
           <Route path="Home" element={<DashHome /> } />
           <Route path="CreateProduct" element={<CreateProduct /> } />
           <Route path="ManageProdcut" element={<ManageProduct /> } />
