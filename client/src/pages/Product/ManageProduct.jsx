@@ -1,5 +1,6 @@
 import React from 'react'
 import DashbtnNoHover from '../../components/Buttons/DashbtnNoHover'
+import { Link } from 'react-router-dom'
 
 const ManageProduct = () => {
     const tableData = [
@@ -54,7 +55,9 @@ const ManageProduct = () => {
                       }
                     </td>
                     <td className='text-center my-2'>
-                      <DashbtnNoHover btntype={'button'} btnvalue={'View'}/>
+                      <Link to={`/Dashboard/ManageProdcut/${data.id}`} >
+                        <DashbtnNoHover btntype={'button'} btnvalue={'View'}/>
+                      </Link>
                     </td>
                   </tr>
                 )

@@ -10,6 +10,7 @@ import DashHome from "./pages/Dashboard/DashHome";
 import CreateProduct from "./pages/Product/CreateProduct";
 import ManageProduct from "./pages/Product/ManageProduct";
 import PrivateRoute from "./components/Auth/PriveteRoute";
+import ManageOneProduct from "./pages/Product/ManageOneProduct";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -64,6 +65,7 @@ export default function App() {
           <Route path="Home" element={<DashHome /> } />
           <Route path="CreateProduct" element={<CreateProduct /> } />
           <Route path="ManageProdcut" element={<ManageProduct /> } />
+          <Route path="ManageProdcut/:id" element={<ManageOneProduct /> } />
         </Route>
       </Routes>
       {shouldShowFooter && <Footer />}
