@@ -11,6 +11,7 @@ const CreateProduct = () => {
     const navigate = useNavigate()
     const [productData, setProductData] = useState({
       productName: '',
+      productID: '',
       description: '',
       price: '',
       stockQuantity: '',
@@ -77,16 +78,30 @@ const CreateProduct = () => {
       <div className="bg-white p-4  shadow-md rounded my-4">
         <div className="">
           <form method="post" onSubmit={headleCreateProduct}>
-            <div className="">
+            <div className="md grid grid-cols-2 gap-2">
+              <div className="">
               <p className="mb-2 text-gray-500">Product Name : </p>
-              <DashInput 
-                Type={'text'}
-                name={'productName'}
-                value={productData.productName}
-                onChange={handleInputChange}
-                required={true}
-                placeholder={'Product Name'}
-              />
+                <DashInput 
+                  Type={'text'}
+                  name={'productName'}
+                  value={productData.productName}
+                  onChange={handleInputChange}
+                  required={true}
+                  placeholder={'Product Name'}
+                />
+              </div>
+
+              <div className="">
+              <p className="mb-2 text-gray-500">Product ID : </p>
+                <DashInput 
+                  Type={'text'}
+                  name={'productID'}
+                  value={productData.productID}
+                  onChange={handleInputChange}
+                  required={true}
+                  placeholder={'Product ID'}
+                />
+              </div>
             </div>
 
             <div className="my-2">
