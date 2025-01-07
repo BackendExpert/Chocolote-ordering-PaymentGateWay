@@ -86,9 +86,8 @@ const ProductController = {
 
             if(checkProduct){
                 return res.json({ Error: "The Product is not exists by Given ID"})
-            }
-            
-            
+            }           
+
 
             return res.json({ Status: "Success"})
         }
