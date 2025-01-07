@@ -68,6 +68,16 @@ const ProductController = {
         catch(err){
             console.log(err)
         }
+    },
+    UpdateProduct: async(req, res) => {
+        try{
+            const ProductID = req.params.id;
+            
+            return res.json({ Status: "Success"})
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
 

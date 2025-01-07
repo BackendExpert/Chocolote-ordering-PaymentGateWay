@@ -9,5 +9,6 @@ const router = express.Router();
 router.post('/createproduct', authMiddleware, adminMiddleware, upload.single('image'), ProductController.prodcutCreate)
 router.get('/allproduct', authMiddleware, adminMiddleware, ProductController.getAllProduct)
 router.get('/oneproduct/:id', authMiddleware, adminMiddleware, ProductController.GetOneProduct)
+router.post('/updateproduct/:id', authMiddleware, adminMiddleware, ProductController.UpdateProduct)
 
 module.exports = router;
