@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import DashbtnNoHover from '../../components/Buttons/DashbtnNoHover'
 import Dashbtn from '../../components/Buttons/Dashbtn'
 import DashBtnClose from '../../components/Buttons/DashBtnClose'
 import ProductUpdateForm from './ProductUpdateForm'
+
 
 const ManageOneProduct = () => {
     const {id} = useParams()
@@ -16,6 +17,11 @@ const ManageOneProduct = () => {
 
   return (
     <div>
+        <div className="py-4">
+            <Link to={'/Dashboard/ManageProdcut'}>
+                <Dashbtn btntype={'button'} btnvalue={'Back to Manage Products'}/>
+            </Link>
+        </div>
         <h1 className="font-semibold text-[#696cff] text-xl">Manage Product : {id}</h1>
 
         <div className="bg-white p-4 rounded shadow-md my-4">
