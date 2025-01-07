@@ -72,7 +72,24 @@ const ProductController = {
     UpdateProduct: async(req, res) => {
         try{
             const ProductID = req.params.id;
+            const {
+                productName,
+                productDesc,
+                productPrice,
+                productStock,
+                productBrand,
+                productWeight,
+                productImage
+            } = req.body
+
+            const checkProduct = await Product.findOne({ productID: ProductID})
+
+            if(checkProduct){
+                return res.json({ Error: "The Product is not exists by Given ID"})
+            }
             
+            
+
             return res.json({ Status: "Success"})
         }
         catch(err){
