@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import DashbtnNoHover from '../../components/Buttons/DashbtnNoHover'
 import Dashbtn from '../../components/Buttons/Dashbtn'
 import DashBtnClose from '../../components/Buttons/DashBtnClose'
+import ProductUpdateForm from './ProductUpdateForm'
 
 const ManageOneProduct = () => {
     const {id} = useParams()
@@ -11,6 +12,7 @@ const ManageOneProduct = () => {
     const headleUpdateForm = (e) => {
         SetProductViewForm(!ProdcutViewForm)
     }
+    
 
   return (
     <div>
@@ -76,19 +78,19 @@ const ManageOneProduct = () => {
                 }
             </div>
 
+        </div>
             <div className="">
                 {
                     ProdcutViewForm === false ?
                         <div className="">
-                            no Data
+                           
                         </div>
                     :
-                        <div className="">
-                            btn Clicked
+                        <div className="bg-white p-4 rounded shadow-md my-4">
+                            <ProductUpdateForm />
                         </div>
                 }
             </div>
-        </div>
     </div>
   )
 }
