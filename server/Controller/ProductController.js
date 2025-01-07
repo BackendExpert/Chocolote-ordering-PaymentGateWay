@@ -45,6 +45,16 @@ const ProductController = {
         catch(err){
             console.log(err)
         }
+    },
+    getAllProduct: async(req, res) => {
+        try{
+            const AllProdcutsAdmin = await Product.find()
+
+            return res.json({ Result: AllProdcutsAdmin})
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
 
