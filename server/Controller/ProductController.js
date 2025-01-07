@@ -5,6 +5,7 @@ const ProductController = {
         try{
             const { 
                 productName,
+                productID,
                 description,
                 price,
                 stockQuantity,
@@ -15,7 +16,7 @@ const ProductController = {
 
             const image = req.file.path
 
-            const chechProduct = await Product.findOne({ productName: productName })
+            const chechProduct = await Product.findOne({ productID: productID })
 
             if(chechProduct){
                 return res.json({ Error: "This Product Already exists..."})
@@ -23,6 +24,7 @@ const ProductController = {
 
             const newProduct = new Product({
                 productName: productName,
+                productID: productID,
                 description: description,
                 price: price,
                 stockQuantity: stockQuantity,
