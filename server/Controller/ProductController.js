@@ -55,6 +55,19 @@ const ProductController = {
         catch(err){
             console.log(err)
         }
+    },
+
+    GetOneProduct: async(req, res) => {
+        try{
+            const ProductID = req.params.id
+
+            const getProduct = await Product.findOne({ productID: ProductID })
+
+            return res.json({ Result: getProduct})
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
 
