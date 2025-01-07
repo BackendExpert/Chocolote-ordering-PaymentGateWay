@@ -3,8 +3,10 @@ import DashInput from '../../components/forms/DashInput'
 import DashInputTextArea from '../../components/forms/DashInputTextArea';
 import DashInputImage from '../../components/forms/DashInputImage';
 import Dashbtn from '../../components/Buttons/Dashbtn';
+import { useNavigate } from 'react-router-dom';
 
 const ProductUpdateForm = () => {
+    const navigate = useNavigate()
     const [ProductUpdateData, SetProductUpdateData] = useState({
         productName: '',
         productDesc: '',
@@ -31,6 +33,39 @@ const ProductUpdateForm = () => {
         }));
     };
   
+    const headleUpdateProduct = async (e) => {
+        e.preventDefault();
+
+        try{
+            const formData = new FormData();
+        
+            // Append product data to FormData, excluding the null or undefined values
+            Object.keys(productData).forEach((key) => {
+              if (productData[key]) {  // Append only if there's data
+                formData.append(key, productData[key]);
+              }
+            });
+
+            const res = await axios.post(import.meta.env.VITE_APP_API + '/product/updateproduct', formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                  'Authorization': `Bearer ${token}`
+                }
+            })
+            .then(res => {
+                if(res.data.Status === "Success"){
+                    alert("Product Updated Successfull")
+                    navigate('/Dashboard/ManageProdcut')
+                }
+                else{
+                    alert(res.data.Error)
+                }
+            })          
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
 
   return (
     <div>
