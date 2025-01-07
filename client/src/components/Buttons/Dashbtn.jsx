@@ -4,7 +4,7 @@ const Dashbtn = ({ btntype, btnvalue, onclick}) => {
   return (
     <button
         type={btntype}
-        onclick={onclick}
+        onClick={onclick}
         className='bg-[#696cff] text-white py-2 px-4 rounded duration-500 hover:ml-2'
         >
         {btnvalue}
