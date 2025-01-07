@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import DashInput from '../../components/forms/DashInput'
 import DashInputTextArea from '../../components/forms/DashInputTextArea';
 import DashInputImage from '../../components/forms/DashInputImage';
+import Dashbtn from '../../components/Buttons/Dashbtn';
 
 const ProductUpdateForm = () => {
     const [ProductUpdateData, SetProductUpdateData] = useState({
@@ -106,13 +107,17 @@ const ProductUpdateForm = () => {
                 </div>
             </div>
             
-            <div className="">
-                <h1 className="text-[#696cff] font-semibold">Product Weight</h1>
+            <div className="my-2">
+                <h1 className="text-[#696cff] font-semibold">Product Image</h1>
                 <DashInputImage 
                     name={'productImage'}
                     required={false}
                     onChange={handleImageChange}
                 />
+            </div>
+
+            <div className="my-4">
+                <Dashbtn btntype={'submit'} btnvalue={'Update Product Data'} />
             </div>
 
         </form>
