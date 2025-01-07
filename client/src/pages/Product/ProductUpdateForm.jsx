@@ -4,8 +4,11 @@ import DashInputTextArea from '../../components/forms/DashInputTextArea';
 import DashInputImage from '../../components/forms/DashInputImage';
 import Dashbtn from '../../components/Buttons/Dashbtn';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+
 
 const ProductUpdateForm = () => {
+    const token = localStorage.getItem("Login")
     const navigate = useNavigate()
     const [ProductUpdateData, SetProductUpdateData] = useState({
         productName: '',
@@ -19,7 +22,7 @@ const ProductUpdateForm = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setProductData((prevData) => ({
+        SetProductUpdateData((prevData) => ({
           ...prevData,
           [name]: value
         }));
@@ -27,7 +30,7 @@ const ProductUpdateForm = () => {
 
     const handleImageChange = (e) => {
         const { name, files } = e.target;
-        setProductData((prevData) => ({
+        SetProductUpdateData((prevData) => ({
           ...prevData,
           [name]: files[0]  // Assuming only one image is uploaded
         }));
@@ -40,11 +43,14 @@ const ProductUpdateForm = () => {
             const formData = new FormData();
         
             // Append product data to FormData, excluding the null or undefined values
-            Object.keys(productData).forEach((key) => {
-              if (productData[key]) {  // Append only if there's data
-                formData.append(key, productData[key]);
+            Object.keys(ProductUpdateData).forEach((key) => {
+              if (ProductUpdateData[key]) {  // Append only if there's data
+                formData.append(key, ProductUpdateData[key]);
               }
             });
+
+            console.log(formData)
+
 
             const res = await axios.post(import.meta.env.VITE_APP_API + '/product/updateproduct', formData, {
                 headers: {
@@ -72,7 +78,7 @@ const ProductUpdateForm = () => {
         <div className="my-4">
             <h1 className="text-[#696cff] font-semibold text-lg">Update Product Data</h1>
         </div>
-        <form method="post">
+        <form onSubmit={headleUpdateProduct} method="post">
             <div className="my-2">
                 <h1 className="text-[#696cff] font-semibold">Product Name</h1>
                 <DashInput 
