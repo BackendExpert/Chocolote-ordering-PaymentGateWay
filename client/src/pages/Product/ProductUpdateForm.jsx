@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const ProductUpdateForm = () => {
+const ProductUpdateForm = ({ id }) => {
     const token = localStorage.getItem("Login")
     const navigate = useNavigate()
     const [ProductUpdateData, SetProductUpdateData] = useState({
@@ -17,7 +17,7 @@ const ProductUpdateForm = () => {
         productStock: '',
         productBrand: '',
         productWeight: '',
-        productImage: '',
+        image: '',
     })
 
     const handleInputChange = (e) => {
@@ -52,7 +52,7 @@ const ProductUpdateForm = () => {
             console.log(formData)
 
 
-            const res = await axios.post(import.meta.env.VITE_APP_API + '/product/updateproduct', formData, {
+            const res = await axios.post(import.meta.env.VITE_APP_API + `/product/updateproduct/${id}`, formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                   'Authorization': `Bearer ${token}`
@@ -61,7 +61,8 @@ const ProductUpdateForm = () => {
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Product Updated Successfull")
-                    navigate('/Dashboard/ManageProdcut')
+                    // navigate('/Dashboard/ManageProdcut')
+                    window.location.reload()
                 }
                 else{
                     alert(res.data.Error)
@@ -91,7 +92,7 @@ const ProductUpdateForm = () => {
                 />
             </div>
             <div className="my-2">
-                <h1 className="text-[#696cff] font-semibold">Product Name</h1>
+                <h1 className="text-[#696cff] font-semibold">Product Description</h1>
                 <DashInputTextArea 
                     name={'productDesc'}
                     value={ProductUpdateData.productDesc}
@@ -103,7 +104,7 @@ const ProductUpdateForm = () => {
             
             <div className="md:grid grid-cols-4 gap-3">
                 <div className="my-2">
-                    <h1 className="text-[#696cff] font-semibold">Product Name</h1>
+                    <h1 className="text-[#696cff] font-semibold">Product Stock</h1>
                     <DashInput 
                         Type={'number'}
                         name={'productStock'}
@@ -114,7 +115,7 @@ const ProductUpdateForm = () => {
                     />
                 </div>
                 <div className="my-2">
-                    <h1 className="text-[#696cff] font-semibold">Product Name</h1>
+                    <h1 className="text-[#696cff] font-semibold">Product Price</h1>
                     <DashInput 
                         Type={'number'}
                         name={'productPrice'}
@@ -151,7 +152,7 @@ const ProductUpdateForm = () => {
             <div className="my-2">
                 <h1 className="text-[#696cff] font-semibold">Product Image</h1>
                 <DashInputImage 
-                    name={'productImage'}
+                    name={'image'}
                     required={false}
                     onChange={handleImageChange}
                 />
