@@ -78,15 +78,18 @@ const ProductController = {
                 productPrice,
                 productStock,
                 productBrand,
-                productWeight,
-                productImage
+                productWeight,                
             } = req.body
+
+            const image = req.file.path
 
             const checkProduct = await Product.findOne({ productID: ProductID})
 
             if(checkProduct){
                 return res.json({ Error: "The Product is not exists by Given ID"})
-            }           
+            } 
+            
+            
 
 
             return res.json({ Status: "Success"})

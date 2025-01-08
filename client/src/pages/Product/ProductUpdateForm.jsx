@@ -17,7 +17,7 @@ const ProductUpdateForm = () => {
         productStock: '',
         productBrand: '',
         productWeight: '',
-        productImage: '',
+        image: '',
     })
 
     const handleInputChange = (e) => {
@@ -151,7 +151,7 @@ const ProductUpdateForm = () => {
             <div className="my-2">
                 <h1 className="text-[#696cff] font-semibold">Product Image</h1>
                 <DashInputImage 
-                    name={'productImage'}
+                    name={'image'}
                     required={false}
                     onChange={handleImageChange}
                 />
