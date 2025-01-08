@@ -61,7 +61,8 @@ const ProductUpdateForm = ({ id }) => {
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Product Updated Successfull")
-                    navigate('/Dashboard/ManageProdcut')
+                    // navigate('/Dashboard/ManageProdcut')
+                    window.location.reload()
                 }
                 else{
                     alert(res.data.Error)
@@ -91,7 +92,7 @@ const ProductUpdateForm = ({ id }) => {
                 />
             </div>
             <div className="my-2">
-                <h1 className="text-[#696cff] font-semibold">Product Name</h1>
+                <h1 className="text-[#696cff] font-semibold">Product Description</h1>
                 <DashInputTextArea 
                     name={'productDesc'}
                     value={ProductUpdateData.productDesc}
@@ -103,7 +104,7 @@ const ProductUpdateForm = ({ id }) => {
             
             <div className="md:grid grid-cols-4 gap-3">
                 <div className="my-2">
-                    <h1 className="text-[#696cff] font-semibold">Product Name</h1>
+                    <h1 className="text-[#696cff] font-semibold">Product Stock</h1>
                     <DashInput 
                         Type={'number'}
                         name={'productStock'}
@@ -114,7 +115,7 @@ const ProductUpdateForm = ({ id }) => {
                     />
                 </div>
                 <div className="my-2">
-                    <h1 className="text-[#696cff] font-semibold">Product Name</h1>
+                    <h1 className="text-[#696cff] font-semibold">Product Price</h1>
                     <DashInput 
                         Type={'number'}
                         name={'productPrice'}
