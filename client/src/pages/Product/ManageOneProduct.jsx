@@ -104,7 +104,7 @@ const ManageOneProduct = () => {
                         </div>
                     :
                         <div className="bg-white p-4 rounded shadow-md my-4">
-                            <ProductUpdateForm />
+                            <ProductUpdateForm id={id}/>
                         </div>
                 }
             </div>

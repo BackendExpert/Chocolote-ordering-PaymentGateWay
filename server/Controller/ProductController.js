@@ -81,18 +81,32 @@ const ProductController = {
                 productWeight,                
             } = req.body
 
-            const image = req.file.path
+            const imageUrl = req.file ? req.file.path : null;
 
             const checkProduct = await Product.findOne({ productID: ProductID})
 
-            if(checkProduct){
+            if(!checkProduct){
                 return res.json({ Error: "The Product is not exists by Given ID"})
             } 
-            
-            
 
-
-            return res.json({ Status: "Success"})
+            const updates = {};
+            if (productName) updates.productName = productName;
+            if (productDesc) updates.description = productDesc;
+            if (productPrice) updates.price = productPrice;
+            if (productStock) updates.stockQuantity = productStock;
+            if (productBrand) updates.brand = productBrand;
+            if (productWeight) updates.weight = productWeight;
+            if (imageUrl) updates.imageUrl = imageUrl;
+    
+            // Ensure there are updates to make
+            if (Object.keys(updates).length === 0) {
+                return res.status(400).json({ Error: "No fields to update" });
+            }
+    
+            // Update the product
+            await Product.updateOne({ productID: ProductID }, { $set: updates });
+    
+            return res.json({ Status: "Success", UpdatedFields: updates });
         }
         catch(err){
             console.log(err)

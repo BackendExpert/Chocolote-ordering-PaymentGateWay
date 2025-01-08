@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const ProductUpdateForm = () => {
+const ProductUpdateForm = ({ id }) => {
     const token = localStorage.getItem("Login")
     const navigate = useNavigate()
     const [ProductUpdateData, SetProductUpdateData] = useState({
@@ -52,7 +52,7 @@ const ProductUpdateForm = () => {
             console.log(formData)
 
 
-            const res = await axios.post(import.meta.env.VITE_APP_API + '/product/updateproduct', formData, {
+            const res = await axios.post(import.meta.env.VITE_APP_API + `/product/updateproduct/${id}`, formData, {
                 headers: {
                   'Content-Type': 'multipart/form-data',
                   'Authorization': `Bearer ${token}`
