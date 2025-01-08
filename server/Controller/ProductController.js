@@ -89,23 +89,33 @@ const ProductController = {
                 return res.json({ Error: "The Product is not exists by Given ID"})
             } 
 
+            // Object to hold the updates
             const updates = {};
+
+            // Add fields to updates object only if they are provided in the request
             if (productName) updates.productName = productName;
             if (productDesc) updates.description = productDesc;
             if (productPrice) updates.price = productPrice;
-            if (productStock) updates.stockQuantity = productStock;
+            if (productStock) updates.stockQuantity = productStock;  // Handle if stock is provided
             if (productBrand) updates.brand = productBrand;
             if (productWeight) updates.weight = productWeight;
             if (imageUrl) updates.imageUrl = imageUrl;
-    
+
             // Ensure there are updates to make
             if (Object.keys(updates).length === 0) {
                 return res.status(400).json({ Error: "No fields to update" });
             }
-    
+
+            if (Number(updates.stockQuantity) === 0) {
+                updates.status = "Out of Stock";
+            } else {
+                updates.status = "In Stock";
+            }
+
+
             // Update the product
             await Product.updateOne({ productID: ProductID }, { $set: updates });
-    
+
             return res.json({ Status: "Success", UpdatedFields: updates });
         }
         catch(err){

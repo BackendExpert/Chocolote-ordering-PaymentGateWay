@@ -73,7 +73,7 @@ const ManageOneProduct = () => {
                 </div>
                 <div className="">
                     <h1 className="text-[#696cff] font-semibold pb-2">Product Status</h1>
-                    <p className="text-gray-500">In-Stock</p>
+                    <p className="text-gray-500">{OneProduct.status}</p>
                 </div>
                 <div className="">
                     <h1 className="text-[#696cff] font-semibold pb-2">Product Weight</h1>
