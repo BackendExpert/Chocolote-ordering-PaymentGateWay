@@ -22,7 +22,7 @@ const MyOrdersChart = () => {
         labels: last5Days,
         datasets: [
             {
-                label: 'Sales',
+                label: 'Orders',
                 data: [10, 14, 6, 22, 35],
                 backgroundColor: '#696cff',
                 borderColor: '#4a58b2',
@@ -65,7 +65,7 @@ const MyOrdersChart = () => {
 
     return (
         <div className="bg-white shadow rounded p-4">
-            <h1 className="text-lg text-[#696cff] font-semibold mb-4 text-center">Orders in Last 5 Days</h1>
+            <h1 className="text-lg text-[#696cff] font-semibold mb-4 text-center">My Orders in Last 5 Days</h1>
             <Bar data={data} options={options} />
         </div>
     );

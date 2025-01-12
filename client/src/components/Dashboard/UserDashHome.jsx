@@ -4,6 +4,7 @@ import { CiBoxList } from "react-icons/ci";
 import { IoMegaphoneSharp } from "react-icons/io5";
 import { FaWallet } from "react-icons/fa";
 import { FaListCheck } from "react-icons/fa6";
+import MyOrdersChart from '../Charts/MyOrdersChart';
 
 
 const UserDashHome = () => {
@@ -36,25 +37,28 @@ const UserDashHome = () => {
     ]
   return (
     <div>
-      <div className="md:grid grid-cols-2 gap-4">
-        <div className="md:grid grid-cols-2 gap-4 my-4">
+      <div className="md:grid grid-cols-2 gap-4 my-4">
+        <div className="md:grid grid-cols-2 gap-4 ">
           {
             userDataCard.map((data, index) => {
               return (
-                <div className="bg-white shadow-md rounded-md p-4" key={index}>
+                <div className="bg-white shadow-md rounded-md p-4 md:my-0 my-4" key={index}>
                   <div className="flex justify-between">
                     <h1 className="text-[#696cff] uppercase font-semibold">{data.name}</h1>
                     <div className="">
                       {data.icon}
                     </div>
                   </div>
-                  <div className="">
-                    <h1 className="text-3xl my-4 text-[#696cff] pl-4">{data.value}</h1>
+                  <div className="mt-8">
+                    <h1 className="text-4xl my-4 text-[#696cff] pl-4">{data.value}</h1>
                   </div>
                 </div>
               )
             })
           }
+        </div>
+        <div className="">
+          <MyOrdersChart />
         </div>
       </div>
     </div>
