@@ -5,6 +5,7 @@ import { IoMegaphoneSharp } from "react-icons/io5";
 import { FaWallet } from "react-icons/fa";
 import { FaListCheck } from "react-icons/fa6";
 import MyOrdersChart from '../Charts/MyOrdersChart';
+import UserLatestData from '../TableData/UserLatestData';
 
 
 const UserDashHome = () => {
@@ -61,6 +62,7 @@ const UserDashHome = () => {
           <MyOrdersChart />
         </div>
       </div>
+      <UserLatestData />
     </div>
   )
 }
