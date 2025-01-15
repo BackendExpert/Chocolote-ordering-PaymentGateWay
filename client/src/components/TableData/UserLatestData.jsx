@@ -24,8 +24,16 @@ const UserLatestData = () => {
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
-
+            <tbody className='bg-white'>
+                {
+                    testData.map((item, index) => {
+                        return (
+                            <tr className="" key={index}>
+                                
+                            </tr>
+                        )
+                    })
+                }
             </tbody>
         </table>
     </div>
