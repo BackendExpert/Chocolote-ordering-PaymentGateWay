@@ -11,6 +11,7 @@ import CreateProduct from "./pages/Product/CreateProduct";
 import ManageProduct from "./pages/Product/ManageProduct";
 import PrivateRoute from "./components/Auth/PriveteRoute";
 import ManageOneProduct from "./pages/Product/ManageOneProduct";
+import PasswordReset from "./pages/AuthPages/PasswordReset";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -61,6 +62,7 @@ export default function App() {
         <Route path="/" element={<HoemPage /> }/>
         <Route path="/register" element={<SignUp /> } />
         <Route path="/signin" element={<SignIn /> } />
+        <Route path="/PasswordRest" element={<PasswordReset /> } />
         <Route path="/Dashboard/" element={ <PrivateRoute element={<Dashboard />} />} >
           <Route path="Home" element={<DashHome /> } />
           <Route path="CreateProduct" element={<CreateProduct /> } />
