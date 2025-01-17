@@ -9,7 +9,6 @@ const AuthController = {
                 username,
                 email,
                 password,
-                address
             } = req.body
 
             const checkUser = await  User.findOne(
@@ -31,7 +30,6 @@ const AuthController = {
                     username: username,
                     email: email,
                     password: hashPass,
-                    address: address
                 })
 
                 const resultUser = await newUser.save()
