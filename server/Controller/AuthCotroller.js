@@ -3,6 +3,15 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const crypto = require('crypto');
 const PwdResetToken = require("../Model/PwdResetToken");
+const nodemailer = require('nodemailer')
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
+    },
+});
 
 const AuthController = {
     signup: async (req, res) => {
@@ -99,9 +108,28 @@ const AuthController = {
                     token: resetTokenHash,                    
                 })
 
+                const resultToken = await PwdResetToken.save()
+
                 const resetUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}/ResetPassword/${resetToken}`;
 
-                // mail middleware
+                if(resultToken){
+                    const mailOptions = {
+                        from: process.env.EMAIL_USER,
+                        to: email,
+                        subject: "Password Reset",
+                        html: `<h1>Password Reset Link</h1>
+                                <p>Password Reset Token: ${resetUrl}</p>
+                                <p>Thank you</p>
+                                <p>Admin</p>
+                        `
+                    };
+                    await transporter.sendMail(mailOptions);
+                    return res.json({ Status: "Success"})
+                }
+                else{
+                    return res.json({ Error: "Internal Server Error" })
+                }
+                
             }
         }
         catch(err){
