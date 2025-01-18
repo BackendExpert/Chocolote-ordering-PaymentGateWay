@@ -101,6 +101,7 @@ const AuthController = {
 
                 const resetUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}/ResetPassword/${resetToken}`;
 
+                // mail middleware
             }
         }
         catch(err){
