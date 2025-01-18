@@ -94,21 +94,33 @@ const AuthController = {
             } = req.body
 
             const checkuser = await User.findOne({ email: email })
+            const checkToken = await PwdResetToken.findOne({ email: email })
 
             if(!checkuser){
                 return res.json({ Error: "No user Found accroding to the givien Email..."})
             }
 
+            if(checkToken){
+                return res.json({ Error: "Already Request Token... Check emails"})
+            }
+            
+
             else{
                 const resetToken = crypto.randomBytes(32).toString('hex');
                 const resetTokenHash = crypto.createHash('sha256').update(resetToken).digest('hex');
+                const defultTime = new Date(); 
+                const expireAt = new Date(defultTime.getTime() + 15 * 60000);
                 
+                // Log the current time and the updated expiration time
+                // console.log("Current Time: " + defultTime.toISOString() + " Updated Time: " + expireAt.toISOString());
+
                 const newPWTToken = new PwdResetToken({
                     email: email,
-                    token: resetTokenHash,                    
+                    token: resetTokenHash,
+                    expire_at: expireAt
                 })
 
-                const resultToken = await PwdResetToken.save()
+                const resultToken = await newPWTToken.save()
 
                 const resetUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}/ResetPassword/${resetToken}`;
 
