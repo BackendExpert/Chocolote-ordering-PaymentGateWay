@@ -22,7 +22,7 @@ const PasswordReset = () => {
         e.preventDefault()
 
         try{
-            const res = await axios.post(import.meta.env.VITE_APP_API + '/auth/signin' + passReset)
+            const res = await axios.post(import.meta.env.VITE_APP_API + '/auth/passreset' + passReset)
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Password Reset Link has been sent to Email Address,.. Check Email")

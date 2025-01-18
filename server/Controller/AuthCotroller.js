@@ -1,6 +1,8 @@
 const User = require("../Model/User");
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const crypto = require('crypto');
+const PwdResetToken = require("../Model/PwdResetToken");
 
 const AuthController = {
     signup: async (req, res) => {
@@ -74,7 +76,38 @@ const AuthController = {
         catch(err){
             console.log(err)
         }
+    },
+
+    passreset: async(req, res)=> {
+        try{
+            const {
+                email
+            } = req.body
+
+            const checkuser = await User.findOne({ email: email })
+
+            if(!checkuser){
+                return res.json({ Error: "No user Found accroding to the givien Email..."})
+            }
+
+            else{
+                const resetToken = crypto.randomBytes(32).toString('hex');
+                const resetTokenHash = crypto.createHash('sha256').update(resetToken).digest('hex');
+                
+                const newPWTToken = new PwdResetToken({
+                    email: email,
+                    token: resetTokenHash,                    
+                })
+
+                const resetUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}/ResetPassword/${resetToken}`;
+
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
+
 
 module.exports = AuthController;

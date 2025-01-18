@@ -12,6 +12,7 @@ import ManageProduct from "./pages/Product/ManageProduct";
 import PrivateRoute from "./components/Auth/PriveteRoute";
 import ManageOneProduct from "./pages/Product/ManageOneProduct";
 import PasswordReset from "./pages/AuthPages/PasswordReset";
+import ResetPassword from "./pages/AuthPages/ResetPassword";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -63,6 +64,7 @@ export default function App() {
         <Route path="/register" element={<SignUp /> } />
         <Route path="/signin" element={<SignIn /> } />
         <Route path="/PasswordRest" element={<PasswordReset /> } />
+        <Route path="/ResetPassword/:token" element={<ResetPassword /> } />
         <Route path="/Dashboard/" element={ <PrivateRoute element={<Dashboard />} />} >
           <Route path="Home" element={<DashHome /> } />
           <Route path="CreateProduct" element={<CreateProduct /> } />
