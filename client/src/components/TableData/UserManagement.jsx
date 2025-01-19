@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const UserManagement = () => {
     const [users, setusers] = useState([])
@@ -17,7 +17,7 @@ const UserManagement = () => {
             role: 'user'
         },
         {
-            id: 1,
+            id: 2,
             name: 'testuser 1',
             email: 'textemail1@123.com',
             role: 'admin'
@@ -25,7 +25,7 @@ const UserManagement = () => {
     ]
 
   return (
-    <div>
+    <div className='my-4'>
         <table className='w-full'>
             <thead className='h-12 bg-[#696cff] text-white'>
                 <tr>
@@ -40,24 +40,28 @@ const UserManagement = () => {
                 {
                     testuser.map((data, index) => {
                         return (
-                            <tr className="h-12 bg-white border-b border-[#696cff]/20" key={index}>
+                            <tr className="h-12 bg-white border-b border-[#696cff]/20 text-center text-gray-500" key={index}>
                                 <td className='pl-4 font-semibold'>{data.id}</td>
+                                <td className='pl-4'>{data.name}</td>
                                 <td className='pl-4'>{data.email}</td>
                                 <td>
                                     {
                                         (() => {
                                             if(data.role === 'admin'){
                                                 return (
-                                                    <span className='bg-red-500 px-4 py-1 rounded'>ADMIN</span>
+                                                    <span className='bg-red-500 px-4 py-0 rounded text-white font-semibold'>ADMIN</span>
                                                 )
                                             }
                                             else if(data.role === 'user'){
                                                 return (
-                                                    <span className='bg-green-500 px-4 py-1 rounded'>USER</span>
+                                                    <span className='bg-green-500 px-4 py-0 rounded text-white font-semibold'>USER</span>
                                                 )
                                             }
                                         })()
                                     }
+                                </td>
+                                <td>
+                                    
                                 </td>
                             </tr>
                         )
