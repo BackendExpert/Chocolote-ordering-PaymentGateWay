@@ -7,6 +7,7 @@ import SubmitBtn from '../../components/Buttons/SubmitBtn'
 const ResetPassword = () => {
     const navigate = useNavigate()
     const {token} = useParams()
+    const tokenString = String(token);
     const [updatepass, setupdatepass] = useState({
         newpass: '',
         confarmpass: '',
@@ -20,10 +21,12 @@ const ResetPassword = () => {
         }));
     };
 
+
+
     const headleupdatepass = async (e) => {
         e.preventDefault()
         try{
-            const res = await axios.post(import.meta.env.VITE_APP_API + `/auth/updatepass/${token}`, updatepass)
+            const res = await axios.post(import.meta.env.VITE_APP_API + `/auth/updatepass/${tokenString}`, updatepass)
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Password Updated Successful")

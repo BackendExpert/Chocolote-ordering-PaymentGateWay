@@ -122,7 +122,7 @@ const AuthController = {
 
                 const resultToken = await newPWTToken.save()
 
-                const resetUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}/ResetPassword/${resetToken}`;
+                const resetUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}/ResetPassword/${resetTokenHash}`;
 
                 if(resultToken){
                     const mailOptions = {
@@ -131,6 +131,7 @@ const AuthController = {
                         subject: "Password Reset",
                         html: `<h1>Password Reset Link</h1>
                                 <p>Password Reset Token: ${resetUrl}</p>
+                                <p>This token will be expired after 15min</p>
                                 <p>Thank you</p>
                                 <p>Admin</p>
                         `
@@ -162,12 +163,12 @@ const AuthController = {
                 return res.json({ Error: "Passwords not match..."})
             }
 
-            // console.log(newpass, confarmpass, token)
+            console.log(newpass, confarmpass, token)
 
             const checktoken = await PwdResetToken.findOne({ token: token })
 
-            if(!checktoken){
-                const hashpass = await bcrypt.hash(password, 10)
+            if(checktoken){
+                const hashpass = await bcrypt.hash(newpass, 10)
 
                 if(hashpass){
                     const updatepass = await User.findOneAndUpdate(
@@ -179,6 +180,7 @@ const AuthController = {
                     )
 
                     if(updatepass){
+                        const deletetoken = await PwdResetToken.findOneAndDelete({ token: token })
                         return res.json({ Status: "Success" })
                     }
                     else{

@@ -9,7 +9,7 @@ const PwdResetTokenSchema = new mongoose.Schema({
         required: true,
         index: { expireAfterSeconds: 0}
     },
-});
+}, { timestamps: true });
 
 const PwdResetToken = mongoose.model('PwdResetToken', PwdResetTokenSchema);
 module.exports = PwdResetToken;
