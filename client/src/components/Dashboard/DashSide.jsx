@@ -57,7 +57,7 @@ const DashSide = ({ headleopenside }) => {
     },
     {
       id: 5, name: "Users Management", icon: <FaUserGroup className='h-5 w-auto fill-[#7e7c88]' />, submenu: [
-        { id: 1, name: "View All Users", link: '' },
+        { id: 1, name: "View All Users", link: '/Dashboard/Users' },
         { id: 2, name: "Manage Admins", link: '' },
       ]
     },

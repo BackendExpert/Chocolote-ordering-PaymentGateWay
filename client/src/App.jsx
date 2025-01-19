@@ -13,6 +13,7 @@ import PrivateRoute from "./components/Auth/PriveteRoute";
 import ManageOneProduct from "./pages/Product/ManageOneProduct";
 import PasswordReset from "./pages/AuthPages/PasswordReset";
 import ResetPassword from "./pages/AuthPages/ResetPassword";
+import User from "./pages/Users/User";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -71,6 +72,8 @@ export default function App() {
           <Route path="CreateProduct" element={<CreateProduct /> } />
           <Route path="ManageProdcut" element={<ManageProduct /> } />
           <Route path="ManageOneProdcut/:id" element={<ManageOneProduct /> } />
+
+          <Route path="Users" element={<User /> } />
         </Route>
       </Routes>
       {shouldShowFooter && <Footer />}
