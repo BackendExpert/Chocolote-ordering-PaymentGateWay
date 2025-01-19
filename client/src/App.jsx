@@ -15,6 +15,7 @@ import PasswordReset from "./pages/AuthPages/PasswordReset";
 import ResetPassword from "./pages/AuthPages/ResetPassword";
 import User from "./pages/Users/User";
 import Admins from "./pages/Users/Admins";
+import VIewUser from "./pages/Users/VIewUser";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -76,6 +77,7 @@ export default function App() {
 
           <Route path="Users" element={<User /> } />
           <Route path="Admins" element={<Admins /> } />
+          <Route path="VIewUser/:id" element={<VIewUser /> } />
         </Route>
       </Routes>
       {shouldShowFooter && <Footer />}

@@ -76,18 +76,11 @@ const AdminManagemet = () => {
                                     <td>
                                         <div>
                                             <center>
-                                                <Link>
+                                                <Link to={`/Dashboard/VIewUser/${data._id}`}>
                                                     <CustomBtn
                                                         btntype={'button'}
                                                         btnvalue={'View User'}
                                                         bgColor={'bg-[#696cff]'}
-                                                    />
-                                                </Link>
-                                                <Link>
-                                                    <CustomBtn
-                                                        btntype={'button'}
-                                                        btnvalue={'View Orders'}
-                                                        bgColor={'bg-blue-500'}
                                                     />
                                                 </Link>
                                                 <Link>

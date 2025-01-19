@@ -77,7 +77,7 @@ const UserManagement = () => {
                                     <td>
                                         <div>
                                             <center>
-                                                <Link>
+                                                <Link to={`/Dashboard/VIewUser/${data._id}`}>
                                                     <CustomBtn
                                                         btntype={'button'}
                                                         btnvalue={'View User'}
