@@ -156,9 +156,43 @@ const AuthController = {
                 confarmpass
             } = req.body
 
-            const token = req.body.params
+            const token = req.params.token
 
-            console.log(newpass, confarmpass, token)
+            if(newpass !== confarmpass){
+                return res.json({ Error: "Passwords not match..."})
+            }
+
+            // console.log(newpass, confarmpass, token)
+
+            const checktoken = await PwdResetToken.findOne({ token: token })
+
+            if(!checktoken){
+                const hashpass = await bcrypt.hash(password, 10)
+
+                if(hashpass){
+                    const updatepass = await User.findOneAndUpdate(
+                        { email: checktoken.email },
+                        {
+                            $set: { password: hashpass }
+                        },
+                        { new: true }
+                    )
+
+                    if(updatepass){
+                        return res.json({ Status: "Success" })
+                    }
+                    else{
+                        return res.json({ Error: "Error While Reseting Password"})
+                    }
+                }
+                else{
+                    return res.json({ Error: "Internal Server Error"})
+                }
+            }
+            else{
+                return res.json({ Error: "Token Invalid or Expired"})
+            }
+            
         }
         catch(err){
             console.log(err)

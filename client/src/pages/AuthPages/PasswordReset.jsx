@@ -12,7 +12,7 @@ const PasswordReset = () => {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setlogindata((prevData) => ({
+        SetpassReset((prevData) => ({
           ...prevData,
           [name]: value
         }));
@@ -22,7 +22,7 @@ const PasswordReset = () => {
         e.preventDefault()
 
         try{
-            const res = await axios.post(import.meta.env.VITE_APP_API + '/auth/passreset' + passReset)
+            const res = await axios.post(import.meta.env.VITE_APP_API + '/auth/passreset', passReset)
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Password Reset Link has been sent to Email Address,.. Check Email")
