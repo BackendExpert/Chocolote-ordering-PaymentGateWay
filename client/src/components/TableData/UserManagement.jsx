@@ -1,31 +1,53 @@
 import React, { useEffect, useState } from 'react'
+import CustomBtn from '../Buttons/CustomBtn'
+import { Link } from 'react-router-dom'
 
 const UserManagement = () => {
-    const [users, setusers] = useState([])
-
+    // const [users, setusers] = useState([])
     // useEffect(() => {
     //     axios.get(import.meta.env.VITE_APP_API + '/users/getusers')
     //     .then(res => setusers(res.data.Result))
     //     .catch(err => console.log(err))
     // }, [])
 
-    const testuser = [
+
+
+    const [users, setUsers] = useState([
         {
-            id: 1,
-            name: 'testuser 1',
+            _id: 1,
+            name: 'jehan',
             email: 'textemail@123.com',
-            role: 'user'
+            role: 'user',
         },
         {
-            id: 2,
-            name: 'testuser 1',
+            _id: 2,
+            name: 'newuser',
             email: 'textemail1@123.com',
-            role: 'admin'
-        }
-    ]
+            role: 'admin',
+        },
+    ]);
+
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const filteredUsers = users.filter(
+        (user) =>
+            user.name.toLowerCase().startsWith(searchQuery.toLowerCase()) ||
+            user.email.toLowerCase().startsWith(searchQuery.toLowerCase())
+    );
+
+    
 
   return (
     <div className='my-4'>
+        <div className="mb-4">
+            <input
+                type="text"
+                placeholder="Search by username or email"
+                className="border p-2 w-full rounded"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+            />
+        </div>
         <table className='w-full'>
             <thead className='h-12 bg-[#696cff] text-white'>
                 <tr>
@@ -37,36 +59,61 @@ const UserManagement = () => {
                 </tr>
             </thead>
             <tbody>
-                {
-                    testuser.map((data, index) => {
-                        return (
-                            <tr className="h-12 bg-white border-b border-[#696cff]/20 text-center text-gray-500" key={index}>
-                                <td className='pl-4 font-semibold'>{data.id}</td>
-                                <td className='pl-4'>{data.name}</td>
-                                <td className='pl-4'>{data.email}</td>
-                                <td>
-                                    {
-                                        (() => {
-                                            if(data.role === 'admin'){
-                                                return (
-                                                    <span className='bg-red-500 px-4 py-0 rounded text-white font-semibold'>ADMIN</span>
-                                                )
-                                            }
-                                            else if(data.role === 'user'){
-                                                return (
-                                                    <span className='bg-green-500 px-4 py-0 rounded text-white font-semibold'>USER</span>
-                                                )
-                                            }
-                                        })()
-                                    }
-                                </td>
-                                <td>
-                                    
-                                </td>
-                            </tr>
-                        )
-                    })
-                }
+                    {filteredUsers.map((data, index) => (
+                        <tr
+                            className="h-12 bg-white border-b border-[#696cff]/20 text-center text-gray-500"
+                            key={index}
+                        >
+                            <td className="pl-4 font-semibold">{data._id}</td>
+                            <td className="pl-4">{data.name}</td>
+                            <td className="pl-4">{data.email}</td>
+                            <td>
+                                {data.role === 'admin' ? (
+                                    <span className="bg-red-500 px-4 py-0 rounded text-white font-semibold">
+                                        ADMIN
+                                    </span>
+                                ) : (
+                                    <span className="bg-green-500 px-4 py-0 rounded text-white font-semibold">
+                                        USER
+                                    </span>
+                                )}
+                            </td>
+                            <td>
+                                <div>
+                                    <center>
+                                        <Link>
+                                            <CustomBtn
+                                                btntype={'button'}
+                                                btnvalue={'View User'}
+                                                bgColor={'bg-[#696cff]'}
+                                            />
+                                        </Link>
+                                        <Link>
+                                            <CustomBtn
+                                                btntype={'button'}
+                                                btnvalue={'View Orders'}
+                                                bgColor={'bg-blue-500'}
+                                            />
+                                        </Link>
+                                        <Link>
+                                            <CustomBtn
+                                                btntype={'button'}
+                                                btnvalue={'View Activities'}
+                                                bgColor={'bg-red-500'}
+                                            />
+                                        </Link>
+                                    </center>
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
+                    {filteredUsers.length === 0 && (
+                        <tr>
+                            <td colSpan="5" className="text-center text-gray-500">
+                                No users found
+                            </td>
+                        </tr>
+                    )}
             </tbody>
         </table>
     </div>
