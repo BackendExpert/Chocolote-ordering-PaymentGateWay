@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import HoemPage from "./pages/HomePage/HoemPage";
 import Nav from "./components/Nav/Nav";
 import { useEffect, useState } from "react";
@@ -60,6 +60,7 @@ export default function App() {
           </div>
         )}
       <Routes>
+        <Route path="*" element={<Navigate to="/signin" />} />
         <Route path="/" element={<HoemPage /> }/>
         <Route path="/register" element={<SignUp /> } />
         <Route path="/signin" element={<SignIn /> } />

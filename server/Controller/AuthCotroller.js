@@ -199,6 +199,24 @@ const AuthController = {
         catch(err){
             console.log(err)
         }
+    },
+
+    istokennotexpired: async(req, res) => {
+        try{
+            const token = req.params.token
+
+            const checktoken = await PwdResetToken.findOne({ token: token })
+
+            if(checktoken){
+                return res.json({ Result: true })
+            }
+            else{
+                return res.json({ Result: false })
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
 

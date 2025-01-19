@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import InputDefault from '../../components/forms/InputDefault'
 import SubmitBtn from '../../components/Buttons/SubmitBtn'
@@ -7,7 +7,19 @@ import SubmitBtn from '../../components/Buttons/SubmitBtn'
 const ResetPassword = () => {
     const navigate = useNavigate()
     const {token} = useParams()
-    const tokenString = String(token);
+    const [checktoken, setchecktoken] = useState(null)
+
+    useEffect(() => {
+        axios.get(import.meta.env.VITE_APP_API + `/auth/checktoken/${token}`)
+        .then(res => setchecktoken(res.data.Result))
+        .catch(err => console.log(err))
+
+        if(!checktoken === true || token.trim() === ""){
+            navigate('/signin')
+            window.location.reload()
+        }
+    }, [])
+
     const [updatepass, setupdatepass] = useState({
         newpass: '',
         confarmpass: '',
@@ -23,10 +35,12 @@ const ResetPassword = () => {
 
 
 
+
+
     const headleupdatepass = async (e) => {
         e.preventDefault()
         try{
-            const res = await axios.post(import.meta.env.VITE_APP_API + `/auth/updatepass/${tokenString}`, updatepass)
+            const res = await axios.post(import.meta.env.VITE_APP_API + `/auth/updatepass/${token}`, updatepass)
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Password Updated Successful")
