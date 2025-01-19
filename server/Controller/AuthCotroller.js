@@ -1,6 +1,17 @@
 const User = require("../Model/User");
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const crypto = require('crypto');
+const PwdResetToken = require("../Model/PwdResetToken");
+const nodemailer = require('nodemailer')
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
+    },
+});
 
 const AuthController = {
     signup: async (req, res) => {
@@ -74,7 +85,140 @@ const AuthController = {
         catch(err){
             console.log(err)
         }
+    },
+
+    passreset: async(req, res)=> {
+        try{
+            const {
+                email
+            } = req.body
+
+            const checkuser = await User.findOne({ email: email })
+            const checkToken = await PwdResetToken.findOne({ email: email })
+
+            if(!checkuser){
+                return res.json({ Error: "No user Found accroding to the givien Email..."})
+            }
+
+            if(checkToken){
+                return res.json({ Error: "Already Request Token... Check emails"})
+            }
+            
+
+            else{
+                const resetToken = crypto.randomBytes(32).toString('hex');
+                const resetTokenHash = crypto.createHash('sha256').update(resetToken).digest('hex');
+                const defultTime = new Date(); 
+                const expireAt = new Date(defultTime.getTime() + 15 * 60000);
+                
+                // Log the current time and the updated expiration time
+                // console.log("Current Time: " + defultTime.toISOString() + " Updated Time: " + expireAt.toISOString());
+
+                const newPWTToken = new PwdResetToken({
+                    email: email,
+                    token: resetTokenHash,
+                    expire_at: expireAt
+                })
+
+                const resultToken = await newPWTToken.save()
+
+                const resetUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}/ResetPassword/${resetTokenHash}`;
+
+                if(resultToken){
+                    const mailOptions = {
+                        from: process.env.EMAIL_USER,
+                        to: email,
+                        subject: "Password Reset",
+                        html: `<h1>Password Reset Link</h1>
+                                <p>Password Reset Token: ${resetUrl}</p>
+                                <p>This token will be expired after 15min</p>
+                                <p>Thank you</p>
+                                <p>Admin</p>
+                        `
+                    };
+                    await transporter.sendMail(mailOptions);
+                    return res.json({ Status: "Success"})
+                }
+                else{
+                    return res.json({ Error: "Internal Server Error" })
+                }
+                
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
+    },
+
+    resetpassword: async(req, res) => {
+        try{
+            const {
+                newpass,
+                confarmpass
+            } = req.body
+
+            const token = req.params.token
+
+            if(newpass !== confarmpass){
+                return res.json({ Error: "Passwords not match..."})
+            }
+
+            console.log(newpass, confarmpass, token)
+
+            const checktoken = await PwdResetToken.findOne({ token: token })
+
+            if(checktoken){
+                const hashpass = await bcrypt.hash(newpass, 10)
+
+                if(hashpass){
+                    const updatepass = await User.findOneAndUpdate(
+                        { email: checktoken.email },
+                        {
+                            $set: { password: hashpass }
+                        },
+                        { new: true }
+                    )
+
+                    if(updatepass){
+                        const deletetoken = await PwdResetToken.findOneAndDelete({ token: token })
+                        return res.json({ Status: "Success" })
+                    }
+                    else{
+                        return res.json({ Error: "Error While Reseting Password"})
+                    }
+                }
+                else{
+                    return res.json({ Error: "Internal Server Error"})
+                }
+            }
+            else{
+                return res.json({ Error: "Token Invalid or Expired"})
+            }
+            
+        }
+        catch(err){
+            console.log(err)
+        }
+    },
+
+    istokennotexpired: async(req, res) => {
+        try{
+            const token = req.params.token
+
+            const checktoken = await PwdResetToken.findOne({ token: token })
+
+            if(checktoken){
+                return res.json({ Result: true })
+            }
+            else{
+                return res.json({ Result: false })
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 };
+
 
 module.exports = AuthController;

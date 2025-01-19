@@ -92,7 +92,7 @@ const SignIn = () => {
                 </div>
                 <div className="mt-16 md:mx-0 mx-8">
                     <div className="md:flex justify-between">
-                        <a href="">
+                        <a href="/PasswordRest">
                             <p className="text-[#654321] uppercase font-semibold">forget password</p>
                         </a>
                         <a href="/register">
