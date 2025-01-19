@@ -14,6 +14,7 @@ import ManageOneProduct from "./pages/Product/ManageOneProduct";
 import PasswordReset from "./pages/AuthPages/PasswordReset";
 import ResetPassword from "./pages/AuthPages/ResetPassword";
 import User from "./pages/Users/User";
+import Admins from "./pages/Users/Admins";
 
 export default function App() {
   const [showNavBar, setShowNavBar] = useState(true);
@@ -74,6 +75,7 @@ export default function App() {
           <Route path="ManageOneProdcut/:id" element={<ManageOneProduct /> } />
 
           <Route path="Users" element={<User /> } />
+          <Route path="Admins" element={<Admins /> } />
         </Route>
       </Routes>
       {shouldShowFooter && <Footer />}

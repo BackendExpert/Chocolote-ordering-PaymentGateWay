@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CustomBtn from '../Buttons/CustomBtn'
 import { Link } from 'react-router-dom'
 
-const UserManagement = () => {
+const AdminManagemet = () => {
     // const [users, setusers] = useState([])
     // useEffect(() => {
     //     axios.get(import.meta.env.VITE_APP_API + '/users/getusers')
@@ -17,13 +17,13 @@ const UserManagement = () => {
             _id: 1,
             name: 'jehan',
             email: 'textemail@123.com',
-            role: 'user',
+            role: 'admin',
         },
         {
             _id: 2,
             name: 'newuser',
             email: 'textemail1@123.com',
-            role: 'user',
+            role: 'admin',
         },
     ]);
 
@@ -34,7 +34,6 @@ const UserManagement = () => {
             user.name.toLowerCase().startsWith(searchQuery.toLowerCase()) ||
             user.email.toLowerCase().startsWith(searchQuery.toLowerCase())
     );
-
     
 
   return (
@@ -60,7 +59,7 @@ const UserManagement = () => {
             </thead>
             <tbody>
                     {filteredUsers.map((data, index) => {
-                        if(data.role === 'user'){
+                        if(data.role === 'admin'){
                             return( 
                                 <tr
                                     className="h-12 bg-white border-b border-[#696cff]/20 text-center text-gray-500"
@@ -70,8 +69,8 @@ const UserManagement = () => {
                                     <td className="pl-4">{data.name}</td>
                                     <td className="pl-4">{data.email}</td>
                                     <td>
-                                        <span className="bg-green-500 px-4 py-0 rounded text-white font-semibold">
-                                            USER
+                                        <span className="bg-red-500 px-4 py-0 rounded text-white font-semibold">
+                                            Admin
                                         </span>
                                     </td>
                                     <td>
@@ -118,4 +117,4 @@ const UserManagement = () => {
   )
 }
 
-export default UserManagement
+export default AdminManagemet
