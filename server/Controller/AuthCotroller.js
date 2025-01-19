@@ -151,7 +151,14 @@ const AuthController = {
 
     resetpassword: async(req, res) => {
         try{
-            
+            const {
+                newpass,
+                confarmpass
+            } = req.body
+
+            const token = req.body.params
+
+            console.log(newpass, confarmpass, token)
         }
         catch(err){
             console.log(err)

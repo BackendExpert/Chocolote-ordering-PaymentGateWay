@@ -23,7 +23,7 @@ const ResetPassword = () => {
     const headleupdatepass = async (e) => {
         e.preventDefault()
         try{
-            const res = await axios.post(import.meta.env.VITE_APP_API + '/auth/updatepass', updatepass)
+            const res = await axios.post(import.meta.env.VITE_APP_API + `/auth/updatepass/${token}`, updatepass)
             .then(res => {
                 if(res.data.Status === "Success"){
                     alert("Password Updated Successful")
